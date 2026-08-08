@@ -1,6 +1,3 @@
-# CicadasPrime
-Prime-Supported Global Attractors in Finite Asymmetric GCD Replicator Dynamics
-
 # Prime-Supported Global Attractors in Finite Asymmetric GCD Replicator Dynamics
 
 > **Abstract**  
@@ -43,10 +40,10 @@ Let $N < \infty$ be a fixed positive integer representing the maximum possible c
 $$I_N = \{2, 3, 4, \dots, N\}$$
 
 The state of the system is represented by the population vector $x = (x_2, x_3, \dots, x_N)^T$, which belongs to the compact $(N-2)$-dimensional simplex:
-$$\Delta_N = \left\{ x \in \mathbb{R}^{N-1} : x_i \ge 0 \quad \forall i \in I_N, \quad \sum_{i=2}^N x_i = 1 \right\}$$
+$$\Delta_N = \left\lbrace x \in \mathbb{R}^{N-1} : x_i \ge 0 \quad \forall i \in I_N, \quad \sum_{i=2}^N x_i = 1 \right\rbrace$$
 
 The interior of the simplex, where all species are present, is defined as:
-$$\text{int}(\Delta_N) = \left\{ x \in \Delta_N : x_i > 0 \quad \forall i \in I_N \right\}$$
+$$\text{int}(\Delta_N) = \left\lbrace x \in \Delta_N : x_i > 0 \quad \forall i \in I_N \right\rbrace$$
 
 ### 2.2 GCD Interaction Kernel
 We define the interaction matrix $M \in \mathbb{R}^{(N-1) \times (N-1)}$ with entries:
@@ -75,7 +72,7 @@ where:
 
 ### 2.4 Prime–Composite Decomposition
 Let $P_N = \{ p \in I_N : p \text{ is prime} \}$ denote the set of prime periods within our system, and let $C_N = I_N \setminus P_N$ denote the set of composite periods. We define the prime face of the simplex as:
-$$\Delta_P = \{ x \in \Delta_N : x_n = 0 \quad \forall n \in C_N \}$$
+$$\Delta_P = \left\lbrace x \in \Delta_N : x_n = 0 \quad \forall n \in C_N \right\rbrace$$
 
 Our mathematical exploration is built upon a fundamental number-theoretic identity. Using Gauss's identity for the Euler totient function $\phi(d)$:
 $$\gcd(i, j) = \sum_{d \mid i, \, d \mid j} \phi(d)$$
@@ -102,9 +99,9 @@ Our primary result establishes that under any fully interior initial state, the 
 
 > **Theorem 1 (Global Convergence)**  
 > Let the developmental cost parameter satisfy $\alpha > 0$ and the competition cost satisfy $\beta > 0$. For any initial population vector $x(0) \in \text{int}(\Delta_N)$, the trajectory $x(t)$ of the replicator dynamics converges to a unique equilibrium $x^*$ as $t \to \infty$:
-> $$\\lim_{t \to \infty} x(t) = x^*$$
+> $$\lim_{t \to \infty} x(t) = x^*$$
 > where $x^*$ is supported exclusively on prime numbers:
-> $$\text{supp}(x^*) = \left\{ p \in P_N : p < \frac{C^*}{\alpha} \right\}$$
+> $$\text{supp}(x^*) = \left\lbrace p \in P_N : p < \frac{C^*}{\alpha} \right\rbrace$$
 > for a uniquely determined system constant $C^* > 0$.
 
 ---
@@ -203,7 +200,7 @@ Since $\Delta_N$ is compact, $f_i(x)$, $c(x)$, and $g_p(x)$ are uniformly bounde
 > **Lemma 5.** Let $\omega(x_0)$ be the $\omega$-limit set of an interior trajectory $x(t)$. Then:
 > $$\omega(x_0) \subset E_{\text{prime}}$$
 > where $E_{\text{prime}}$ is the set of equilibria of the prime-face replicator equation:
-> $$E_{\text{prime}} = \left\{ y \in \Delta_P : y_p \left( g_p(y) - \bar{g}(y) \right) = 0 \quad \forall p \in P_N \right\}$$
+> $$E_{\text{prime}} = \left\lbrace y \in \Delta_P : y_p \left( g_p(y) - \bar{g}(y) \right) = 0 \quad \forall p \in P_N \right\rbrace$$
 
 *Proof.*  
 For any $y \in \omega(x_0)$, $y_n = 0$ for all $n \in C_N$ (by Lemma 1), placing $y \in \Delta_P$. Lemma 4 implies $I(y) = 0$, which yields $y_p (g_p(y) - \bar{g}(y)) = 0$ for all $p \in P_N$. $\blacksquare$
@@ -308,7 +305,7 @@ Because replicator dynamics are invariant under column-constant additions, the c
 Prime selection stems directly from the divisibility structure embedded in the GCD kernel. A prime period $p$ only feels competition from $Y_1(x)$ and $Y_p(x)$, whereas a composite period $n$ feels competition from all of its intermediate divisors as well. This additional penalty forces composite periods to decay.
 
 ### 5.3 Role of Finite Dimensionality
-Finite $N < \infty$ ensures that $\Delta_N$ is compact and that the minimum decay rate $\delta = \min_{n \in C_N} \alpha(n - p(n)) \ge \alpha > 0$ is strictly positive, guaranteeing exponential decay and integrability of $E(t)$.
+Finite $N < \infty$ ensures that $\Delta_N$ is compact and that the minimum decay rate $\delta = \min_{n \in C_N}  lpha(n - p(n)) \ge \alpha > 0$ is strictly positive, guaranteeing exponential decay and integrability of $E(t)$.
 
 ### 5.4 Role of Interior Initial Conditions
 Full interior initial conditions ($x_i(0) > 0$) ensure that necessary prime species are present from the start to outcompete composite species.
@@ -352,5 +349,4 @@ where $K = \left( (\alpha N + \beta)^2 + (\alpha N + \beta) K_R \right) C < \inf
 
 ## Appendix B. KKT Characterization
 
-Stationarity and complementary slackness yield the optimal support $S = \left\{ p \in P_N : p < \frac{C^*}{\alpha} \right\}$, where $C^*$ is uniquely determined by the normalization constraint $F(C^*) = \sum_{p < C^*/\alpha} \frac{p(C^* - \alpha p)}{\beta(p-1)} = 1$.
-
+Stationarity and complementary slackness yield the optimal support $S = \left\lbrace p \in P_N : p < \frac{C^*}{\alpha} \right\rbrace$, where $C^*$ is uniquely determined by the normalization constraint $F(C^*) = \sum_{p < C^*/\alpha} \frac{p(C^* - \alpha p)}{\beta(p-1)} = 1$.
