@@ -2,50 +2,6 @@
 Prime-Supported Global Attractors in Finite Asymmetric GCD Replicator Dynamics
 
 
-Gemini
-새 채팅
-채팅 검색
-이미지
-동영상
-라이브러리
-새 노트북
-AI 생성 수학 모델 검토 요청
-AI 삼각 구조 메타물질 탐구
-구글 AI 경쟁력: 거인의 민첩성 문제
-앱 패키지 등록 완료 확인
-클래스 101 게임 개발 강의 기획
-AI, 초전도체 게임 완성
-윈도우 캡처 도구 영상 복구 방법
-Greeting and Offer of Help
-대중문화 해석, 사회 정치적 맥락 투영
-게임 개발 아이디어 논의
-윈도우 기본 영상 녹화 방법
-마르크스 망령과 성령의 대칭성
-게임 개발 강의 기획 프롬프트 작성
-해녀와 현대인의 삶 비교
-커팅 시 운동 능력 저하와 관리
-다이어트 설사, 건강 악재
-음담패설, 여성주의 백래시인가?
-Minimalist Falling Star Sprite Sheet
-게임용 별똥별 애니메이션 스프라이트 시트
-유니티로 선리스 시티 만들기
-선리스 시티 유니티 개발 로드맵
-선리스 시티 유니티 개발 로드맵
-별똥별 떨어지는 방치형 도시 키우기 게임
-클래스101 링크 접근 불가 설명
-화상회의, 노트북 vs 핸드폰
-에어컨 콘센트 고장 원인과 안전 수칙
-중세의 숨겨진 무신론자들
-Gemini와의 대화
-Grok: **Reddit용 초안**입니다.  
-
-r/math, r/learnmath, r/complexsystems, r/evolution 등에 올리기 좋게 짧고 읽기 쉽게 썼습니다.
-
-
-
----
-
-
 
 **Title:**  
 
