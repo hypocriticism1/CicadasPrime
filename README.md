@@ -1,93 +1,6 @@
 # CicadasPrime
 Prime-Supported Global Attractors in Finite Asymmetric GCD Replicator Dynamics
 
-
-
-### 5.1 Why the Asymmetry Disappears Asymptotically
-On the full simplex $\\Delta_N$, the interaction matrix $M_{ij} = \\frac{\\gcd(i, j)}{j}$ is asymmetric. However, all composite periods decay exponentially. Once composites vanish, the restricted prime matrix simplifies to $M_{pq} = \\frac{1}{q}$ for $p \\neq q$ and $1$ for $p = q$.
-
-This matrix decomposes into a rank-1 column-constant matrix and a symmetric diagonal matrix:
-$$M_{pq} = \\frac{1}{q} + \\delta_{pq} \\frac{p-1}{p}$$
-
-Because replicator dynamics are invariant under column-constant additions, the column-constant term $\\frac{1}{q}$ cancels out, revealing a hidden symmetric game $g_p(x) = -\\alpha p - \\beta \\frac{p-1}{p} x_p$ governed by a strictly concave potential function.
-
-### 5.2 Arithmetic Structure of the GCD Kernel
-Prime selection stems directly from the divisibility structure embedded in the GCD kernel. A prime period $p$ only feels competition from $Y_1(x)$ and $Y_p(x)$, whereas a composite period $n$ feels competition from all of its intermediate divisors as well. This additional penalty forces composite periods to decay.
-
-### 5.3 Role of Finite Dimensionality
-Finite $N < \\infty$ ensures that $\\Delta_N$ is compact and that the minimum decay rate $\\delta = \\min_{n \\in C_N} \\alpha(n - p(n)) \\ge \\alpha > 0$ is strictly positive, guaranteeing exponential decay and integrability of $E(t)$.
-
-### 5.4 Role of Interior Initial Conditions
-Full interior initial conditions ($x_i(0) > 0$) ensure that necessary prime species are present from the start to outcompete composite species.
-
----
-
-## 6. Limitations and Open Problems
-
-### 6.1 Infinite-Dimensional Extension
-Extending this proof to an infinite-dimensional sequence space ($\\ell_1$) introduces non-compactness of the state space and the potential for $\\delta_n \\to 0$ as $n \\to \\infty$, which remains an open problem in functional analysis.
-
-### 6.2 Boundary Initial Conditions
-If some prime coordinates start at zero, composite species relying on those missing primes may survive on boundary faces as pseudo-primes.
-
-### 6.3 Generalized Arithmetic Kernels
-Analyzing kernels such as $M_{ij} = \\frac{1}{\\text{lcm}(i, j)^s}$ for $s > 0$ is an exciting future direction.
-
----
-
-## 7. Conclusion
-We have presented a rigorous proof of the global convergence of finite-dimensional asymmetric GCD replicator dynamics to a unique prime-supported equilibrium. This provides a firm mathematical foundation for the prime-period cicada hypothesis.
-
----
-
-## Appendix A. Detailed Bounds
-
-### A.1 Bounding Background Fitness $c(x)$
-$$0 < Y_1(x) \\le \\frac{1}{2} \\implies |c(x)| \\le M_c = R + \\frac{\\beta}{2}$$
-
-### A.2 Bounding Local Prime Fitness $g_p(x)$
-$$|g_p(x)| \\le M_g = \\alpha N + \\beta$$
-
-### A.3 Bounding Composite Fitness $f_n(x)$
-$$|f_n(x)| \\le M_f = R + \\alpha N + \\beta$$
-
-### A.4 Bounding Remainder $R_p(x)$ and Perturbation $E(t)$
-$$|R_p(x)| \\le K_R e^{-\\delta t}, \\quad |E(t)| \\le K e^{-\\delta t}$$
-where $K = \\left( (\\alpha N + \\beta)^2 + (\\alpha N + \\beta) K_R \\right) C < \\infty$.
-
----
-
-## Appendix B. KKT Characterization
-
-Stationarity and complementary slackness yield the optimal support $S = \\left\\{ p \\in P_N : p < \\frac{C^*}{\\alpha} \\right\\}$, where $C^*$ is uniquely determined by the normalization constraint $F(C^*) = \\sum_{p < C^*/\\alpha} \\frac{p(C^* - \\alpha p)}{\\beta(p-1)} = 1$.
-"""
-
-file_path = "prime_supported_global_attractors.md"
-with open(file_path, "w", encoding="utf-8") as f:
-    f.write(md_content)
-
-print(f"File saved successfully to {file_path}")
-
-작업이 정상적으로 완료되어 Markdown(.md) 파일이 새로 생성되었습니다.
-
-MD 아이콘
-prime_supported_global_attractors
- MD 
-열기
-서식 정제 및 포함 내용
-표준 Markdown 구조 적용: # ~ ### 계층구조로 논문의 단락을 구성하였습니다.
-
-LaTeX 수식 렌더링 지원: 본문 내 수식($...$) 및 독립 블록 수식($$...$$)이 Obsidian, Notion, GitHub 등의 Markdown 렌더러에서 깔끔하게 출력되도록 교정했습니다.
-
-정리 및 증명 구분: 초록(Abstract), 각 Lemma 및 Proof, Theorem, Appendix, 수학적 의존성 맵(ASCII)까지 생략 없이 포맷팅을 완료했습니다.
-
-위 태그의 링크를 눌러 생성된 .md 파일을 확인하고 다운로드하실 수 있습니다.
-
-
-
-
-Gemini는 AI이며 인물 등에 관한 정보 제공 시 실수를 할 수 있습니다. 개인 정보 보호 및 Gemini새 창에서 열기
-
 # Prime-Supported Global Attractors in Finite Asymmetric GCD Replicator Dynamics
 
 > **Abstract**  
@@ -440,5 +353,4 @@ where $K = \left( (\alpha N + \beta)^2 + (\alpha N + \beta) K_R \right) C < \inf
 ## Appendix B. KKT Characterization
 
 Stationarity and complementary slackness yield the optimal support $S = \left\{ p \in P_N : p < \frac{C^*}{\alpha} \right\}$, where $C^*$ is uniquely determined by the normalization constraint $F(C^*) = \sum_{p < C^*/\alpha} \frac{p(C^* - \alpha p)}{\beta(p-1)} = 1$.
-prime_supported_global_attractors.md
-prime_supported_global_attractors.md 항목을 표시하는 중입니다.
+
