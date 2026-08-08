@@ -349,4 +349,75 @@ where $K = \left( (\alpha N + \beta)^2 + (\alpha N + \beta) K_R \right) C < \inf
 
 ## Appendix B. KKT Characterization
 
-Stationarity and complementary slackness yield the optimal support $S = \left\lbrace p \in P_N : p < \frac{C^*}{\alpha} \right\rbrace$, where $C^*$ is uniquely determined by the normalization constraint $F(C^*) = \sum_{p < C^*/\alpha} \frac{p(C^* - \alpha p)}{\beta(p-1)} = 1$.
+In this appendix, we derive the KKT conditions for the maximizer of $V(x)$ on the prime face $\Delta_P$.
+
+### B.1 Lagrangian Formulation
+We consider the convex optimization problem:
+$$\text{Minimize } -V(x) = \sum_{p \in P_N} \alpha p x_p + \frac{\beta}{2} \sum_{p \in P_N} \frac{p-1}{p} x_p^2$$
+$$\text{subject to } \sum_{p \in P_N} x_p = 1, \quad -x_p \le 0 \quad \forall p \in P_N$$
+
+The Lagrangian for this minimization problem is:
+$$\mathcal{L}(x, \lambda, \mu) = -V(x) + \lambda \left( \sum_{p \in P_N} x_p - 1 \right) - \sum_{p \in P_N} \mu_p x_p$$
+where $\lambda \in \mathbb{R}$ is the Lagrange multiplier for the equality constraint, and $\mu_p \ge 0$ are the KKT multipliers for the inequality constraints.
+
+### B.2 KKT Optimality Conditions
+The Karush-Kuhn-Tucker (KKT) conditions for the optimal point $x^*$ are:
+1. **Stationarity:** For all $p \in P_N$:
+   $$\frac{\partial \mathcal{L}}{\partial x_p} = -g_p(x^*) + \lambda - \mu_p = 0 \implies g_p(x^*) + \mu_p = \lambda$$
+2. **Primal Feasibility:** $\sum_{p \in P_N} x_p^* = 1$, and $x_p^* \ge 0$ for all $p \in P_N$.
+3. **Dual Feasibility:** $\mu_p \ge 0$ for all $p \in P_N$.
+4. **Complementary Slackness:** $\mu_p x_p^* = 0$ for all $p \in P_N$.
+
+### B.3 Support Structure Analysis
+We partition the primes into active and inactive sets at the optimal point $x^*$.
+
+* For any active prime $p \in S = \text{supp}(x^*)$, we have $x_p^* > 0$. Complementary slackness requires $\mu_p = 0$. Substituting this into the stationarity condition gives:
+  $$g_p(x^*) = \lambda \implies -\alpha p - \beta \frac{p-1}{p} x_p^* = \lambda$$
+  Solving for $x_p^*$:
+  $$x_p^* = \frac{p(-\lambda - \alpha p)}{\beta(p-1)}$$
+  Defining $C = -\lambda$, this becomes:
+  $$x_p^* = \frac{p(C - \alpha p)}{\beta(p-1)}$$
+  Since $x_p^* > 0$, we must have:
+  $$C - \alpha p > 0 \implies p < \frac{C}{\alpha}$$
+
+* For any inactive prime $q \notin S$, we have $x_q^* = 0$. Complementary slackness allows $\mu_q \ge 0$. The stationarity condition requires:
+  $$g_q(x^*) + \mu_q = \lambda = -C \implies g_q(x^*) = -C - \mu_q$$
+  Since $\mu_q \ge 0$, we have:
+  $$g_q(x^*) \le -C \implies -\alpha q \le -C \implies q \ge \frac{C}{\alpha}$$
+
+Combining these two cases, we show that the support $S$ of the global maximizer $x^*$ consists exactly of all primes below the threshold $C/\alpha$:
+$$S = \left\lbrace p \in P_N : p < \frac{C}{\alpha} \right\rbrace$$
+
+### B.4 Uniqueness and Existence of the Threshold C
+The value of the threshold constant $C$ is uniquely determined by the normalization constraint:
+$$\sum_{p \in S} x_p^* = \sum_{p < C/\alpha} \frac{p(C - \alpha p)}{\beta(p-1)} = 1$$
+
+Let us define the function $F(C)$ on $[0, \infty)$ as:
+$$F(C) = \sum_{p < C/\alpha} \frac{p(C - \alpha p)}{\beta(p-1)}$$
+
+The function $F(C)$ is continuous and strictly monotonically increasing on $[0, \infty)$, with $F(0) = 0$ and $\lim_{C \to \infty} F(C) = \infty$.
+
+By the Intermediate Value Theorem, there exists exactly one positive real number $C^*$ such that $F(C^*) = 1$. This unique value $C^*$ determines both the system constant and the unique stable support $S$, completing the proof. $\blacksquare$
+
+---
+
+## Mathematical Consistency Check
+
+To verify the mathematical integrity of the proof, we map the dependencies between our lemmas:
+
+1. **Lemma 1 (Composite Extinction)** establishes the exponential decay $\sum_{n \in C_N} x_n(t) \le C e^{-\delta t}$.
+   * *Used in:* Lemma 4 (bounds $1-S_P$ and $E_p(x)$ exponentially) and **Lemma 5** (shows the limit set lies in the prime face $\Delta_P$).
+2. **Lemma 2 (Prime-Face Decomposition)** structures the prime fitness as $f_p = c + g_p - E_p$.
+   * *Used in:* Lemma 3 (structures the perturbation term $R_p(x)$ in the Lyapunov derivative) and Lemma 7 (resolves the boundary fitness limit $f_q - \bar{f} \to g_q - \bar{g}$).
+3. **Lemma 3 (Perturbed Lyapunov Identity)** derives $\dot{V}(t) = I(t) + E(t)$ with the $S_P \neq 1$ correction.
+   * *Used in:* Lemma 4 (integrates $\dot{V}$ to show the convergence of $I(t)$).
+4. **Lemma 4 (Integrability and Barbalat)** proves $\lim_{t \to \infty} I(t) = 0$.
+   * *Used in:* Lemma 5 (proves that the limit points are prime-face equilibria).
+5. **Lemma 5 (Omega-Limit Set Characterization)** establishes $\omega(x_0) \subset E_{\text{prime}}$.
+   * *Used in:* Proposition 8 (restricts limit points to a finite set of equilibria).
+6. **Lemma 6 (Finiteness of Equilibria)** establishes the strict concavity of $V(x)$ on $\Delta_P$.
+   * *Used in:* Lemma 7 (links $e \neq x^*$ to a KKT violation) and Proposition 8 (proves that the set of equilibria is finite).
+7. **Lemma 7 (Boundary Equilibrium Exclusion)** proves that interior trajectories cannot converge to any boundary equilibrium $e \neq x^*$.
+   * *Used in:* Proposition 8 (excludes non-maximizing limit points).
+8. **Proposition 8 (Singleton Limit Set)** shows $\omega(x_0) = \{x^*\}$.
+   * *Used in:* Theorem 1 (concludes global convergence $x(t) \to x^*$).
